@@ -2,7 +2,7 @@
     "Jackett": {
         "name": "Jackett 索引器",
         "description": "添加 Jackett 索引器",
-        "version": "0.0.0",
+        "version": "0.0.1",
         "icon": "https://raw.githubusercontent.com/so1ve/MoviePilot-Plugins/main/icons/jackett.png",
         "color": "#000000",
         "author": "so1ve",
