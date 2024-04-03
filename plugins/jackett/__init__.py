@@ -1,4 +1,3 @@
-# MoviePilot library
 import threading
 from typing import Any, Dict, List, Tuple
 
