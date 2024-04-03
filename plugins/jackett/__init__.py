@@ -27,7 +27,7 @@ class Jackett(_PluginBase):
     # 主题色
     plugin_color = "#000000"
     # 插件版本
-    plugin_version = "0.0.1"
+    plugin_version = "0.0.2"
     # 插件作者
     plugin_author = "Ray"
     # 作者主页
@@ -78,7 +78,7 @@ class Jackett(_PluginBase):
                         self.get_status, CronTrigger.from_crontab(self._cron)
                     )
 
-                if self._onlyonce:
+                if self._run_once:
                     logger.info("开始获取索引器状态")
                     self._scheduler.add_job(
                         self.get_status,
@@ -393,6 +393,7 @@ class Jackett(_PluginBase):
                                             "component": "VTextField",
                                             "props": {
                                                 "model": "password",
+                                                "type": "password",
                                                 "label": "Jackett 密码",
                                                 "placeholder": "password",
                                             },
