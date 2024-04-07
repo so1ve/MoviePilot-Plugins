@@ -27,7 +27,7 @@ class Jackett(_PluginBase):
     # 主题色
     plugin_color = "#000000"
     # 插件版本
-    plugin_version = "0.0.6"
+    plugin_version = "0.0.7"
     # 插件作者
     plugin_author = "Ray"
     # 作者主页
@@ -144,6 +144,7 @@ class Jackett(_PluginBase):
             ret = RequestUtils(headers=headers, cookies=cookie).get_res(
                 indexer_query_url
             )
+            logger.info(f"获取索引器状态1：{ret}")
             if not ret:
                 return []
             if not check_response_is_valid_json(ret):
@@ -165,7 +166,7 @@ class Jackett(_PluginBase):
                 )
                 for v in ret.json()
             ]
-            logger.info(str(indexers))
+            logger.info(f"获取索引器状态2：{ret}")
             return indexers
         except Exception as e:
             logger.error(f"获取索引器失败：{str(e)}")
