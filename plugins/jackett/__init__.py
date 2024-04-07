@@ -27,7 +27,7 @@ class Jackett(_PluginBase):
     # 主题色
     plugin_color = "#000000"
     # 插件版本
-    plugin_version = "0.0.9"
+    plugin_version = "0.0.10"
     # 插件作者
     plugin_author = "Ray"
     # 作者主页
@@ -56,13 +56,11 @@ class Jackett(_PluginBase):
             self._enabled = bool(config.get("enabled"))
             self._api_key = str(config.get("api_key"))
             logger.info(config)
-            host = config.get("host")
-            if host is not None:
-                host = str(host)
-                if not host.startswith("http"):
-                    self._host = "http://" + host
-                if host.endswith("/"):
-                    self._host = host.rstrip("/")
+            self._host = str(config.get("host"))
+            if not self._host.startswith("http"):
+                self._host = "http://" + self._host
+            if self._host.endswith("/"):
+                self._host = self._host.rstrip("/")
             self._password = str(config.get("password"))
             self._cron = str(config.get("cron"))
             self._run_once = bool(config.get("run_once"))
@@ -396,7 +394,7 @@ class Jackett(_PluginBase):
                                             "component": "VTextField",
                                             "props": {
                                                 "model": "password",
-                                                # "type": "password",
+                                                "type": "password",
                                                 "label": "Jackett 密码",
                                                 "placeholder": "password",
                                             },
