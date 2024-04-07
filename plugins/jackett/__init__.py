@@ -27,7 +27,7 @@ class Jackett(_PluginBase):
     # 主题色
     plugin_color = "#000000"
     # 插件版本
-    plugin_version = "0.0.2"
+    plugin_version = "0.0.3"
     # 插件作者
     plugin_author = "Ray"
     # 作者主页
@@ -393,7 +393,7 @@ class Jackett(_PluginBase):
                                             "component": "VTextField",
                                             "props": {
                                                 "model": "password",
-                                                "type": "password",
+                                                # "type": "password",
                                                 "label": "Jackett 密码",
                                                 "placeholder": "password",
                                             },
