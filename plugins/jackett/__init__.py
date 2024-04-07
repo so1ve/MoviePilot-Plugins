@@ -27,7 +27,7 @@ class Jackett(_PluginBase):
     # 主题色
     plugin_color = "#000000"
     # 插件版本
-    plugin_version = "0.0.5"
+    plugin_version = "0.0.6"
     # 插件作者
     plugin_author = "Ray"
     # 作者主页
@@ -89,7 +89,7 @@ class Jackett(_PluginBase):
                     )
                     # 关闭一次性开关
                     self._run_once = False
-                    self.__update_config()
+                    self._update_config()
 
                 if self._cron or self._run_once:
                     # 启动服务
