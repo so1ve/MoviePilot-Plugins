@@ -27,7 +27,7 @@ class Jackett(_PluginBase):
     # 主题色
     plugin_color = "#000000"
     # 插件版本
-    plugin_version = "0.0.7"
+    plugin_version = "0.0.8"
     # 插件作者
     plugin_author = "Ray"
     # 作者主页
@@ -55,6 +55,7 @@ class Jackett(_PluginBase):
         if config:
             self._enabled = bool(config.get("enabled"))
             self._api_key = str(config.get("api_key"))
+            logger.info(config)
             host = config.get("host")
             if host:
                 host = str(host)
