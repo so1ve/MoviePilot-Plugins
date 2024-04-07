@@ -27,7 +27,7 @@ class Jackett(_PluginBase):
     # 主题色
     plugin_color = "#000000"
     # 插件版本
-    plugin_version = "0.0.10"
+    plugin_version = "0.0.11"
     # 插件作者
     plugin_author = "Ray"
     # 作者主页
@@ -55,7 +55,6 @@ class Jackett(_PluginBase):
         if config:
             self._enabled = bool(config.get("enabled"))
             self._api_key = str(config.get("api_key"))
-            logger.info(config)
             self._host = str(config.get("host"))
             if not self._host.startswith("http"):
                 self._host = "http://" + self._host
@@ -70,7 +69,6 @@ class Jackett(_PluginBase):
 
             if self._run_once:
                 self._scheduler = BackgroundScheduler(timezone=settings.TZ)
-                logger.info(self.get_indexers())
 
                 if self._cron:
                     logger.info(f"索引更新服务启动，周期：{self._cron}")
@@ -143,7 +141,6 @@ class Jackett(_PluginBase):
             ret = RequestUtils(headers=headers, cookies=cookie).get_res(
                 indexer_query_url
             )
-            logger.info(f"获取索引器状态1：{ret}")
             if not ret:
                 return []
             if not check_response_is_valid_json(ret):
@@ -165,7 +162,6 @@ class Jackett(_PluginBase):
                 )
                 for v in ret.json()
             ]
-            logger.info(f"获取索引器状态2：{ret}")
             return indexers
         except Exception as e:
             logger.error(f"获取索引器失败：{str(e)}")
