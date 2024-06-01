@@ -1,11 +1,31 @@
 {
     "Jackett": {
         "name": "Jackett 索引器",
-        "description": "添加 Jackett 索引器",
-        "version": "0.0.14",
-        "icon": "https://raw.githubusercontent.com/so1ve/MoviePilot-Plugins/main/icons/jackett.png",
+        "description": "添加 Jackett 索引器，插件开发中",
+        "version": "0.0.18",
+        "icon": "https://raw.githubusercontent.com/junyuyuan/MoviePilot-Plugins/main/icons/jackett.png",
         "color": "#000000",
-        "author": "so1ve",
-        "level": 1
+        "author": "junyuyuan,Ray",
+        "level": 2,
+        "history": {
+            "v0.0.18": "还原代码到0.0.7版本，提升用户等级，插件开发中",
+            "v0.0.17": "domain测试1",
+            "v0.0.16": "domain测试",
+            "v0.0.15": "恢复Search",
+            "v0.0.14": "去除Jackett生成的Search",
+            "v0.0.13": "修改站点URL为Domain",
+            "v0.0.12": "修改站点URL",
+            "v0.0.11": "打印站点列表",
+            "v0.0.10": "再次尝试加入站点添加",
+            "v0.0.9": "尝试加入站点添加失败，还原代码",
+            "v0.0.8": "尝试加入站点添加",
+            "v0.0.7": "重新设置Domain参数，去掉http://",
+            "v0.0.6": "还原Search测试",
+            "v0.0.5": "重新设置Domain参数",
+            "v0.0.4": "屏蔽Search测试",
+            "v0.0.3": "增加测试日志",
+            "v0.0.2": "添加site_link",
+            "v0.0.1": "初始化工程"
+        }
     }
 }
