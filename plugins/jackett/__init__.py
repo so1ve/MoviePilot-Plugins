@@ -19,23 +19,23 @@ class Jackett(_PluginBase):
     # 插件名称
     plugin_name = "Jackett 索引器"
     # 插件描述
-    plugin_desc = "支持检索 Jackett 站点资源"
+    plugin_desc = "支持检索 Jackett 站点资源，插件开发中，请勿下载使用"
     # 插件图标
-    plugin_icon = "https://raw.githubusercontent.com/so1ve/MoviePilot-Plugins/main/icons/jackett.png"
+    plugin_icon = "https://raw.githubusercontent.com/junyuyuan/MoviePilot-Plugins/main/icons/jackett.png"
     # 主题色
     plugin_color = "#000000"
     # 插件版本
-    plugin_version = "0.0.14"
+    plugin_version = "0.0.18"
     # 插件作者
-    plugin_author = "Ray"
+    plugin_author = "Junyuyuan,Ray"
     # 作者主页
-    author_url = "https://github.com/so1ve"
+    author_url = "https://github.com/junyuyuan"
     # 插件配置项ID前缀
     plugin_config_prefix = "jackett_"
     # 加载顺序
     plugin_order = 1
     # 可使用的用户级别
-    auth_level = 1
+    auth_level = 2
 
     # 私有属性
     _event = Event()
@@ -112,8 +112,13 @@ class Jackett(_PluginBase):
             return False
         self._sites = self.get_indexers()
         for site in self._sites:
-            logger.info((site["domain"], site))
-            self._sites_helper.add_indexer(site["domain"], site)
+            # logger.info(site["site_link"], site)
+            # if not site["site_link"] or site["site_link"] == "":
+            #     continue
+            # domain = site["site_link"].split('//')[-1].split('/')[0]
+            domain = site["domain"].split('//')[-1]
+            logger.info((domain, site))
+            self._sites_helper.add_indexer(domain, site)
         return True if isinstance(self._sites, list) and len(self._sites) > 0 else False
 
     def get_indexers(self):
@@ -154,6 +159,7 @@ class Jackett(_PluginBase):
                 {
                     "id": f'{v["id"]}-jackett',
                     "name": f'{v["name"]} (Jackett)',
+                    "site_link": f'{v["site_link"]}',
                     "domain": f'{self._host}/api/v2.0/indexers/{v["id"]}/results/torznab/',
                     "public": True if v["type"] == "public" else False,
                     "proxy": True,
@@ -162,7 +168,7 @@ class Jackett(_PluginBase):
                     "search": {
                         "paths": [
                             {
-                                "path": f"?apikey={self._api_key}&t=search&q={{keyword}}",
+                                "path": f"api?apikey={self._api_key}&t=search&q={{keyword}}",
                                 "method": "get",
                             }
                         ]
