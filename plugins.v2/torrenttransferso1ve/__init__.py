@@ -27,7 +27,7 @@ class TorrentTransfer(_PluginBase):
     # 插件图标
     plugin_icon = "seed.png"
     # 插件版本
-    plugin_version = "1.7.2"
+    plugin_version = "1.7.1.1"
     # 插件作者
     plugin_author = "jxxghp,so1ve"
     # 作者主页
