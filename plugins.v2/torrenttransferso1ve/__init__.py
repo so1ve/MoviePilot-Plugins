@@ -33,7 +33,7 @@ class TorrentTransfer(_PluginBase):
     # 作者主页
     author_url = "https://github.com/so1ve"
     # 插件配置项ID前缀
-    plugin_config_prefix = "torrenttransfer_"
+    plugin_config_prefix = "torrenttransferray_"
     # 加载顺序
     plugin_order = 18
     # 可使用的用户级别
