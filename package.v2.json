@@ -3,7 +3,7 @@
         "name": "自动转移做种（支持 qBittorrent 跳过校验）",
         "description": "定期转移下载器中的做种任务到另一个下载器。",
         "labels": "做种",
-        "version": "1.10.1",
+        "version": "1.10.2",
         "icon": "seed.png",
         "author": "jxxghp,so1ve",
         "level": 2,
