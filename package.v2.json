@@ -1,16 +1,18 @@
 {
-		"TorrentTransferRay": {
-        "name": "自动转移做种（支持 qBittorrent 5）",
+    "TorrentTransferRay": {
+        "name": "自动转移做种（支持 qBittorrent 跳过校验）",
         "description": "定期转移下载器中的做种任务到另一个下载器。",
         "labels": "做种",
-        "version": "1.7.1.1",
+        "version": "1.10.1",
         "icon": "seed.png",
         "author": "jxxghp,so1ve",
         "level": 2,
         "history": {
+            "v1.10.1": "支持跳过校验（仅支持 qBittorrent），开启跳过校验后需手动开启自动开始",
+            "v1.9": "优化执行周期输入，需要MoviePilot v2.2.1+",
+            "v1.8": "支持qbittorrent 5",
             "v1.7": "MoviePilot V2 版本自动转移做种插件",
-            "v1.7.1": "修复兼容性问题",
-            "v1.7.1.1": "修复 qBittorrent 5 支持"
+            "v1.7.1": "修复兼容性问题"
         }
     }
 }
